@@ -1,0 +1,27 @@
+{
+    "applicationName": "cpa-bioexcel-cwl",
+    "contactEmail": "famaladoss@ebi.ac.uk",
+    "about": "cloud portal bioexcel application to create VM with tools such as CWL, toil, docker",
+    "version": "0.1",
+    "cloudProviders": [
+        {
+            "cloudProvider": "OSTACK",
+            "path": "ostack"
+        }
+    ],
+    "inputs": [
+        "nfs_server_host",
+        "remote_folder"
+    ],
+    "deploymentParameters": [
+        "disk_image_name",
+        "remote_user",
+        "machine_type",
+        "local_folder",
+        "floating_ip_pool",
+        "network_name"
+    ],
+    "outputs": [
+        "external_ip"
+    ]
+}

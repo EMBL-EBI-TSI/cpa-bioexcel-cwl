@@ -1,0 +1,40 @@
+---
+- name: Warming up nfs-client instance
+  gather_facts: no
+  hosts: instance_public_ip
+
+  tasks:
+  - name: Initial connection block
+    block:
+      - name: Wait 1 minutes, but only start checking after 10 seconds
+        wait_for_connection:
+          delay: 10
+          timeout: 60
+    rescue:
+      - name: Try to install python 2, when ansible is not able to connect
+        raw: test -e /usr/bin/python || (apt -y update && apt install -y python)
+
+- name: Set up cwl
+  hosts: instance_public_ip
+  roles:
+    - cwl
+    - toil
+    - docker  
+# name: Set up NFS
+# hosts: instance_public_ip
+# become: yes
+# roles:
+#   - role: 'indigo-dc.nfs'
+#     nfs_mode: 'client'
+#     nfs_client_imports:
+#       - local: "{{ lookup('env','TF_VAR_local_folder') }}"
+#         remote: "{{ lookup('env','TF_VAR_remote_folder') }}"
+#         server_host: "{{lookup('env','TF_VAR_nfs_server_host')}}"
+
+- name: Change authorized public keys
+  gather_facts: no
+  hosts: instance_public_ip
+
+  tasks:
+    - name: Make sure the user key is authorized on the nfs-server instance
+      authorized_key: user="{{lookup('env','ANSIBLE_REMOTE_USER')}}" key="{{lookup('env','ssh_key')}}" exclusive=no state=present
