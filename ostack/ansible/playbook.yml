@@ -1,5 +1,5 @@
 ---
-- name: Warming up nfs-client instance
+- name: Warming up cwl instance
   gather_facts: no
   hosts: instance_public_ip
 
@@ -20,16 +20,17 @@
     - cwl
     - toil
     - docker  
-# name: Set up NFS
-# hosts: instance_public_ip
-# become: yes
-# roles:
-#   - role: 'indigo-dc.nfs'
-#     nfs_mode: 'client'
-#     nfs_client_imports:
-#       - local: "{{ lookup('env','TF_VAR_local_folder') }}"
-#         remote: "{{ lookup('env','TF_VAR_remote_folder') }}"
-#         server_host: "{{lookup('env','TF_VAR_nfs_server_host')}}"
+ 
+- name: Set up NFS
+  hosts: instance_public_ip
+  become: yes
+  roles:
+    - role: 'indigo-dc.nfs'
+      nfs_mode: 'client'
+      nfs_client_imports:
+        - local: "{{ lookup('env','TF_VAR_local_folder') }}"
+          remote: "{{ lookup('env','TF_VAR_remote_folder') }}"
+          server_host: "{{lookup('env','TF_VAR_nfs_server_host')}}"
 
 - name: Change authorized public keys
   gather_facts: no

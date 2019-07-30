@@ -1,10 +1,15 @@
+---
 # Install dependencies and docker-ce
 - name: Install aptitude using apt
   apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
 
 - name: Install required system packages
   apt: name={{ item }} state=latest update_cache=yes
-  loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common' ]
+  with_items: 
+     - apt-transport-https
+     - ca-certificates
+     - curl
+     - software-properties-common
 
 - name: Add Docker GPG apt Key
   apt_key:
