@@ -32,6 +32,17 @@
           remote: "{{ lookup('env','TF_VAR_remote_folder') }}"
           server_host: "{{lookup('env','TF_VAR_nfs_server_host')}}"
 
+- name: Activate virtual env while login
+  hosts: instance_public_ip
+  tasks:
+    - name: Add line to bash_profile to activate virtual environment
+      lineinfile:
+        path: ~/.profile
+        state: present
+        line: 'source ~/cwl_bioexcel/bin/activate'
+      become: yes
+      become_user : "{{lookup('env','ANSIBLE_REMOTE_USER')}}"
+
 - name: Change authorized public keys
   gather_facts: no
   hosts: instance_public_ip

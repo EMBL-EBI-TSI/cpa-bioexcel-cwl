@@ -51,6 +51,12 @@ variable "ssh_key" {
   type        = "string"
 }
 
+variable "ssh_user" {
+  default     = "ubuntu"
+  description = "SSH user to login to VM"
+  type        = "string"
+}
+
 variable "user_private_key_path" {
   description = "The path of the private SSH key connected to the public SSH key to be injected in the vm. This key will be not used by terraform or ansible, but the path will used only to build a personalised ssh.config file. If not set up, it will assume the key is located in ~/.ssh/id_rsa"
   type        = "string"

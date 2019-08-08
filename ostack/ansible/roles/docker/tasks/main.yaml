@@ -28,7 +28,7 @@
   pip:
     name: docker
     virtualenv: ~/cwl_bioexcel
-    virtualenv_python: python2.7
+    virtualenv_python: python3
   become: yes
   become_user : "{{lookup('env','ANSIBLE_REMOTE_USER')}}"
 
