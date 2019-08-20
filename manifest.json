@@ -23,6 +23,7 @@
     ],
     "outputs": [
         "external_ip",
-		"ssh_user"
+	"ssh_user",
+	"ssh_command"
     ]
 }
