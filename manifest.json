@@ -1,7 +1,7 @@
 {
-    "applicationName": "cpa-bioexcel-cwl",
+    "applicationName": "CWL VM environment",
     "contactEmail": "famaladoss@ebi.ac.uk",
-    "about": "cloud portal bioexcel application to create VM with tools such as CWL, toil, docker",
+    "about": "Cloud Portal Bioexcel application to create ubuntu based VM with tools such as cwltool, Toil, Docker",
     "version": "0.1",
     "cloudProviders": [
         {
