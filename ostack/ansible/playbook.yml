@@ -23,6 +23,8 @@
  
 - name: Set up NFS
   hosts: instance_public_ip
+  vars:
+      nfs_install: "{{ lookup('env','TF_VAR_nfs_install') }}"
   become: yes
   roles:
     - role: 'indigo-dc.nfs'
@@ -31,6 +33,7 @@
         - local: "{{ lookup('env','TF_VAR_local_folder') }}"
           remote: "{{ lookup('env','TF_VAR_remote_folder') }}"
           server_host: "{{lookup('env','TF_VAR_nfs_server_host')}}"
+      when: nfs_install == 'yes'
 
 - name: Activate virtual env while login
   hosts: instance_public_ip
