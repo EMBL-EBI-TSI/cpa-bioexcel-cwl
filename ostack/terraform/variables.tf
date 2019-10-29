@@ -1,6 +1,6 @@
 #### Deployment ####
 variable "name" {
-  default     = "nfs-client"
+  default     = "cwl vm environment"
   description = "The name of the deployment"
 }
 
@@ -16,7 +16,7 @@ variable "deployment_path" {
 
 #### OpenStack ####
 variable "disk_image_name" {
-  default     = "ubuntu-18.04"
+  default     = "ubuntu-18.04-python"
   description = "OS image name to use for installation"
 }
 

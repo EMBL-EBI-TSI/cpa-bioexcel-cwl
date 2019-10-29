@@ -6,10 +6,10 @@
   tasks:
   - name: Initial connection block
     block:
-      - name: Wait 1 minutes, but only start checking after 10 seconds
+      - name: Wait 30 seconds, but only start checking after 5 seconds
         wait_for_connection:
-          delay: 10
-          timeout: 60
+          delay: 5
+          timeout: 30
     rescue:
       - name: Try to install python 2, when ansible is not able to connect
         raw: test -e /usr/bin/python || (apt -y update && apt install -y python)
