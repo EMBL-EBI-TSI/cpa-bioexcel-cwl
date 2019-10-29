@@ -15,9 +15,9 @@ It uses the ubuntu 18.04 image from openstack and installs tolls cwl, toil, dock
 
 | Parameter name          | Parameter value       |
 | ---                     | ---                   |
-| `disk_image_name`       | `ubuntu-18.04`          |
+| `disk_image_name`       | `ubuntu-18.04`        |
 | `remote_user`           | `ubuntu`              |
-| `machine_type`          | `s1.tiny`             |
+| `machine_type`          | `s1.small`            |
 | `local_folder`          | `nfs-imports`         |
 | `floating_ip_pool`      | `ext-net`             |
 | `network_name`          | ``                    |
@@ -25,7 +25,8 @@ It uses the ubuntu 18.04 image from openstack and installs tolls cwl, toil, dock
 | `public_key_path`       | `~/.ssh/id_rsa.pub`   |
 | `private_key_path`      | `~/.ssh/id_rsa`       |
 | `user_private_key_path` | `~/.ssh/id_rsa`       |
-| `name`                  | `nfs-client`          |
+| `name`                  | ``                    |
+| `nfs_install`           | `yes` or  `yes`       |
 
 ### `Inputs`
 

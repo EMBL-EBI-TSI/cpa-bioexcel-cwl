@@ -19,7 +19,8 @@
         "machine_type",
         "local_folder",
         "floating_ip_pool",
-        "network_name"
+        "network_name",
+        "nfs_install"
     ],
     "outputs": [
         "external_ip",
