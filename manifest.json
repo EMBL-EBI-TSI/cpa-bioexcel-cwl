@@ -20,7 +20,8 @@
         "local_folder",
         "floating_ip_pool",
         "network_name",
-        "nfs_install"
+        "nfs_install",
+        "workflow_url"
     ],
     "outputs": [
         "external_ip",

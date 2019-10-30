@@ -25,8 +25,9 @@ It uses the ubuntu 18.04 image from openstack and installs tolls cwl, toil, dock
 | `public_key_path`       | `~/.ssh/id_rsa.pub`   |
 | `private_key_path`      | `~/.ssh/id_rsa`       |
 | `user_private_key_path` | `~/.ssh/id_rsa`       |
-| `name`                  | ``                    |
+| `name`                  | `CWL Instance`        |
 | `nfs_install`           | `yes` or  `yes`       |
+| `workflow_url`          | `https://github.com/` |
 
 ### `Inputs`
 
