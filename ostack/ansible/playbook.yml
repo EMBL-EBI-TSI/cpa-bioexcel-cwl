@@ -46,10 +46,23 @@
       become: yes
       become_user : "{{lookup('env','ANSIBLE_REMOTE_USER')}}"
 
+- name: Git clone workflow repository if URL configured
+  hosts: instance_public_ip
+  vars:
+      workflow_url: "{{ lookup('env','TF_VAR_workflow_url') }}"
+  tasks:
+    - name: Cloning repo url - "{{ workflow_url  }}"
+      git:
+        repo: '{{ workflow_url  }}'
+        dest: /home/{{ lookup('env','ANSIBLE_REMOTE_USER') }}/workflows/mutations
+      become: yes
+      become_user : "{{lookup('env','ANSIBLE_REMOTE_USER')}}"
+      when: workflow_url != ""
+
 - name: Change authorized public keys
   gather_facts: no
   hosts: instance_public_ip
 
   tasks:
-    - name: Make sure the user key is authorized on the nfs-server instance
+    - name: Make sure the user key is authorized on the CWL environment instance
       authorized_key: user="{{lookup('env','ANSIBLE_REMOTE_USER')}}" key="{{lookup('env','ssh_key')}}" exclusive=no state=present
