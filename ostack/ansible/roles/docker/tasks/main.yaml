@@ -1,16 +1,5 @@
 ---
-# Install dependencies and docker-ce
-- name: Install aptitude using apt
-  apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
-
-- name: Install required system packages
-  apt: name={{ item }} state=latest update_cache=yes
-  with_items: 
-     - apt-transport-https
-     - ca-certificates
-     - curl
-     - software-properties-common
-
+# Install docker-ce
 - name: Add Docker GPG apt Key
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
@@ -23,14 +12,6 @@
  
 - name: Update apt and install docker-ce
   apt: update_cache=yes name=docker-ce state=latest
-
-- name: Install Docker Module for Python in virtualenv
-  pip:
-    name: docker
-    virtualenv: ~/cwl_bioexcel
-    virtualenv_python: python3
-  become: yes
-  become_user : "{{lookup('env','ANSIBLE_REMOTE_USER')}}"
 
 # Add ssh user to docker group
 - name: Adding remotr user "{{lookup('env','ANSIBLE_REMOTE_USER')}}" to docker group

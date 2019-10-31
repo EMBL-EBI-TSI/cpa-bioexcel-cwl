@@ -1,19 +1,14 @@
 ---
-# Tasks to install and configure CWL-runner
-
-# Install dependencies for CWL-runner
-
-- name: Install dependencies for cwl
-  apt:
-    name: ['virtualenv', 'python-dev', 'python-setuptools', 'python3-pip', 'python3-venv']
-    state: present
-
 # Install cwlref-runner in venv
-
 - name: install cwl in virtualenv "{{lookup('env','ANSIBLE_REMOTE_USER')}}" - HOME
   pip:
     name: cwlref-runner
     virtualenv: ~/cwl_bioexcel
     virtualenv_python: python3
-  become: yes
-  become_user : "{{lookup('env','ANSIBLE_REMOTE_USER')}}"
+
+# Activate virtual env while login
+- name: Add line to bash_profile to activate virtual environment
+  lineinfile:
+    path: ~/.profile
+    state: present
+    line: 'source ~/cwl_bioexcel/bin/activate'

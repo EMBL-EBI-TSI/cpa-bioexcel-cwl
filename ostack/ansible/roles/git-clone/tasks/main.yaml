@@ -1,0 +1,7 @@
+---
+# Clone Workflow repo into HOME-DIR/workflow
+- name: Cloning repo url - "{{ workflow_url  }}"
+  git:
+    repo: '{{ workflow_url  }}'
+    dest: /home/{{ lookup('env','ANSIBLE_REMOTE_USER') }}/workflow
+  when: workflow_url != ""

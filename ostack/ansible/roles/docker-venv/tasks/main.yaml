@@ -1,0 +1,6 @@
+---
+- name: Install Docker Module for Python in virtualenv
+  pip:
+    name: docker
+    virtualenv: ~/cwl_bioexcel
+    virtualenv_python: python3
