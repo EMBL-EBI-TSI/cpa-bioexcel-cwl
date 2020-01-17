@@ -10,6 +10,8 @@
           delay: 5
           timeout: 30
     rescue:
+      - name: Disabling prompt for restarting while installing packages
+        raw: echo '* libraries/restart-without-asking boolean true' | sudo debconf-set-selections
       - name: Try to install python 2, when ansible is not able to connect
         raw: test -e /usr/bin/python || (apt -y update && apt install -y python)
     become: yes
