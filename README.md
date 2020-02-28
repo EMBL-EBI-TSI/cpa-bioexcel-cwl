@@ -8,6 +8,7 @@ It uses the ubuntu 18.04 image from openstack and installs tolls cwl, toil, dock
 
 
 ## Instructions
+Add project to cloud portal, enter suitable inputs and deploy.
 
 ## Default values
 
