@@ -1,6 +1,6 @@
 # Cloud Portal Application - bioexcel-cwl
 Cloud Portal Bioexcel application to create VM with tools such as CWL, toil, docker and nfs client.
-It uses the ubuntu 18.04 image from openstack and installs tolls cwl, toil, docker using ansible.
+It uses the ubuntu 18.04 image from openstack and installs tools: cwl, toil, docker using ansible.
 
 ---
 
