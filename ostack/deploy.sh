@@ -34,6 +34,7 @@ echo "export TF_STATE=${TF_STATE}"
 
 # Launch provisioning of the VM
 echo -e "\n\t${CYAN}Terraform apply${NC}\n"
+terraform -chdir=${APP}'/ostack/terraform' init
 terraform -chdir=${APP}'/ostack/terraform' apply --state=${DPL}'terraform.tfstate'  -auto-approve
 
 # Extract the external IP of the instance
