@@ -29,7 +29,7 @@ echo "export KEY_PATH=${KEY_PATH}"
 export TF_VAR_key_path="${KEY_PATH}"
 echo "export TF_VAR_key_path=${TF_VAR_key_path}"
 
-export TF_STATE=${DPL}'terraform.tfstate'
+export TF_STATE=${DPL}
 echo "export TF_STATE=${TF_STATE}"
 
 # Launch provisioning of the VM
