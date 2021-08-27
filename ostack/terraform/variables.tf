@@ -3,14 +3,6 @@
 # settings as they're submissible on a per-project basis                                           #
 ####################################################################################################
 
-variable "network_name" {
-  default = "default.network_name"
-  description = "See https://uk1.embassy.ebi.ac.uk/project/networks/, or OpenStack CLI openstack network list"
-}
-variable "floating_ip_pool" {
-  default = "default.floating_ip_pool"
-  description = "See https://uk1.embassy.ebi.ac.uk/project/networks/, or OpenStack CLI openstack network list"
-}
 variable "user_name" {
   default = "default.user_name"
   description = "Your email (although I don't think the value is used or verified at any point!)"
@@ -18,6 +10,20 @@ variable "user_name" {
 variable "tenant_name" {
   default = "default.tenant_name"
   description = "See https://uk1.embassy.ebi.ac.uk/identity/application_credentials/create/, or OpenStack CLI openstack project list"
+}
+
+####################################################################################################
+# These variables you'd expect to be consistent across projects (although disk_image_name maybe    #
+# less so perhaps?!)                                                                               #         
+####################################################################################################
+
+variable "auth_url" {
+  default = "https://uk1.embassy.ebi.ac.uk:5000"
+  description = "See https://uk1.embassy.ebi.ac.uk/project/api_access/ (Identity Service), or https://uk1.embassy.ebi.ac.uk/identity/application_credentials/create/"
+}
+variable "region" {
+  default = "RegionOne"
+  description = "See https://uk1.embassy.ebi.ac.uk/identity/application_credentials/create/ or OpenStack CLI openstack region list"
 }
 
 #### Deployment ####
