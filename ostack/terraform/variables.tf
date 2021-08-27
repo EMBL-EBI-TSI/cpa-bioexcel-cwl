@@ -1,3 +1,25 @@
+####################################################################################################
+# These are what you'd expect to be defined in one of ECP's Profile -> Deployment Parameters       #
+# settings as they're submissible on a per-project basis                                           #
+####################################################################################################
+
+variable "network_name" {
+  default = "default.network_name"
+  description = "See https://uk1.embassy.ebi.ac.uk/project/networks/, or OpenStack CLI openstack network list"
+}
+variable "floating_ip_pool" {
+  default = "default.floating_ip_pool"
+  description = "See https://uk1.embassy.ebi.ac.uk/project/networks/, or OpenStack CLI openstack network list"
+}
+variable "user_name" {
+  default = "default.user_name"
+  description = "Your email (although I don't think the value is used or verified at any point!)"
+}
+variable "tenant_name" {
+  default = "default.tenant_name"
+  description = "See https://uk1.embassy.ebi.ac.uk/identity/application_credentials/create/, or OpenStack CLI openstack project list"
+}
+
 #### Deployment ####
 variable "name" {
   default     = "cwl vm environment"
