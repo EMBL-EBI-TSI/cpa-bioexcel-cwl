@@ -1,7 +1,7 @@
 ---
 - name: Warming up cwl instance
   gather_facts: no
-  hosts: instance_public_ip
+  hosts: "{{ ecp_host | default('instance_public_ip') }}"
   tasks:
   - name: Initial connection block
     block:
@@ -38,7 +38,7 @@
     authorized_key: user="{{lookup('env','ANSIBLE_REMOTE_USER')}}" key="{{lookup('env','ssh_key')}}" exclusive=no state=present
 
 - name: Install roles as a root
-  hosts: instance_public_ip
+  hosts: "{{ ecp_host | default('instance_public_ip') }}"
   vars:
       nfs_install: "{{ lookup('env','TF_VAR_nfs_install') }}"
   become: yes
@@ -53,7 +53,7 @@
     - docker
 
 - name: Setup CWL instance as a remote user - "{{lookup('env','ANSIBLE_REMOTE_USER')}}"
-  hosts: instance_public_ip
+  hosts: "{{ ecp_host | default('instance_public_ip') }}"
   vars:
       workflow_url: "{{ lookup('env','TF_VAR_workflow_url') }}"
   become: yes
