@@ -25,6 +25,13 @@
       - python3-pip
       - python3-venv
 
+  - name: Install pipenv
+    pip:
+      name: pipenv
+      version: "2021.5.29"
+      executable: pip3
+    become: yes
+
   - name: Install required system packages
     apt: name={{ item }} state=latest update_cache=yes force_apt_get=yes
     with_items:
