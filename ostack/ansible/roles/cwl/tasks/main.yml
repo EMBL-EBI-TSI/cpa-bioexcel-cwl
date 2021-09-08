@@ -1,14 +1,22 @@
 ---
+
+- name: Upload pipenv files to install cwl
+  ansible.builtin.copy:
+    src: cwl_bioexcel
+    dest: ~/
+    owner: "{{lookup('env','ANSIBLE_REMOTE_USER')}}"
+    group: "{{lookup('env','ANSIBLE_REMOTE_USER')}}"
+    mode: '0644'
+
 # Install cwlref-runner in venv
-- name: install cwl in virtualenv "{{lookup('env','ANSIBLE_REMOTE_USER')}}" - HOME
-  pip:
-    name: cwlref-runner
-    virtualenv: ~/cwl_bioexcel
-    virtualenv_python: python3
+- name: Install cwl
+  ansible.builtin.shell:
+    cmd: pipenv install
+    chdir: ~/cwl_bioexcel
 
 # Activate virtual env while login
 - name: Add line to bash_profile to activate virtual environment
   lineinfile:
     path: ~/.profile
     state: present
-    line: 'source ~/cwl_bioexcel/bin/activate'
+    line: 'cd ~/cwl_bioexcel && pipenv shell'
