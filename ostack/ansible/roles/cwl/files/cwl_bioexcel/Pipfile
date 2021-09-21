@@ -4,6 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+setuptools  = {version="<58"}
+rdflib-jsonld = {version="<0.6.0"}
+toil = {extras = ["cwl"], version = "*"}
 cwlref-runner = "*"
 
 [dev-packages]
