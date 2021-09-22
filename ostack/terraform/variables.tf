@@ -44,17 +44,17 @@ variable "deployment_path" {
 
 #### OpenStack ####
 variable "disk_image_name" {
-  default     = "ubuntu-18.04-python"
+  default     = "ubuntu-18_04-python"
   description = "OS image name to use for installation"
 }
 
 variable "machine_type" {
-  default     = "s1.tiny"
+  default     = "2c4m80d"
   description = "Machine type (flavor)"
 }
 
 variable "floating_ip_pool" {
-  default = "ext-net"
+  default = "public"
 }
 
 variable "network_name" {
