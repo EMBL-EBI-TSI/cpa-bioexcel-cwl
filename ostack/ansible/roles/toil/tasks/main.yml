@@ -1,7 +1,0 @@
----
-# Install toil in virtualenv
-- name: install toil in virtualenv
-  pip:
-    name: toil[cwl]
-    virtualenv: ~/cwl_bioexcel
-    virtualenv_python: python3

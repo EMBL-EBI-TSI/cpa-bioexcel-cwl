@@ -67,7 +67,6 @@
   become_user : "{{lookup('env','ANSIBLE_REMOTE_USER')}}"
   roles:
     - cwl
-    - toil
     - git-clone
     - docker-venv
 

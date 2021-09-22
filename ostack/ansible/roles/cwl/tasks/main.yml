@@ -9,7 +9,7 @@
     mode: '0644'
 
 # Install cwlref-runner in venv
-- name: Install cwl
+- name: Install cwl and toil
   ansible.builtin.shell:
     cmd: pipenv install
     chdir: ~/cwl_bioexcel
