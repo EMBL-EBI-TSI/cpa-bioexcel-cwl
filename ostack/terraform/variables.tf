@@ -53,6 +53,11 @@ variable "machine_type" {
   description = "Machine type (flavor)"
 }
 
+variable "instance_volume_size" {
+  default     = "80"
+  description = "Instance volume size."
+}
+
 variable "floating_ip_pool" {
   default = "public"
 }

@@ -1,9 +1,22 @@
+data "openstack_images_image_v2" "instance_image" {
+  name        = "${var.disk_image_name}"
+  most_recent = true
+}
+
 resource "openstack_compute_instance_v2" "instance" {
   count       = "${var.instances}"
   flavor_name = "${var.machine_type}"
   key_pair    = "${var.name}-keypair"
-  image_name  = "${var.disk_image_name}"
   name        = "${var.name}-${count.index + 1}"
+
+  block_device {
+    uuid                  = "${data.openstack_images_image_v2.instance_image.id}"
+    source_type           = "image"
+    volume_size           = "${var.instance_volume_size}"
+    boot_index            = 0
+    destination_type      = "volume"
+    delete_on_termination = true
+  }
 
   network {
     name           = "${var.network_name}"
