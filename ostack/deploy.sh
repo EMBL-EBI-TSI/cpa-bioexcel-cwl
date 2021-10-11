@@ -62,4 +62,4 @@ echo "export ANSIBLE_REMOTE_USER=${ANSIBLE_REMOTE_USER}"
 
 # Launch Ansible playbook
 echo -e "\n\t${CYAN}Launch Ansible playbook${NC}\n"
-ansible-playbook -vvvv -b playbook.yml --extra-vars "ecp_host=${terraform_default_host}"
+ansible-playbook -b playbook.yml --extra-vars "ecp_host=${terraform_default_host}"
