@@ -46,7 +46,7 @@ The current default values can be determined from the content of [variables.tf](
 in some cases the [deploy.sh](ostack/deploy.sh) script). If you want to use your own values, specify them by
 matching against the parameter name in the "Deployment Parameters".
 
-| Parameter name          | **Default** parameter value          | Overwrite <b> default? | Description                                             |
+| Parameter name          | **Default** parameter value          | Overwrite <br /> default? | Description                                             |
 | ---                     | ---                                  | ---       | ---                                                     |
 | `user_name`             | `default.user_name`                  | Optional  | Your email                                              |
 | `tenent_name`           | `default.tenant_name`                | Yes       | OpenStack tenant name                                   |
