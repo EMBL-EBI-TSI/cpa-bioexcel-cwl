@@ -38,6 +38,15 @@ commit #97122f2 at least!
 
 That should kick off a series of workflow steps.
 
+## "Cloud Credentials"
+
+These are new for Embassy4 submissions and replace the previous username/password mechanism.
+
+| Credential name                  | Description (derived from [RedHat docs](https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/13/html/command_line_interface_reference/the_openstack_client) |
+| ---                              | ---                                                              |
+| OS_APPLICATION_CREDENTIAL_ID     | With v3applicationcredential: application credential ID          |
+| OS_APPLICATION_CREDENTIAL_SECRET | With v3applicationcredential: application credential auth secret |
+
 ## Default values
 
 ### "Deployment Parameters"
@@ -47,26 +56,26 @@ in some cases the [deploy.sh](ostack/deploy.sh) script). If you want to use your
 matching against the parameter name in the "Deployment Parameters".
 
 | Parameter name          | **Default** parameter value          | Overwrite <br /> default? | Description                                             |
-| ---                     | ---                                  | ---       | ---                                                     |
-| `user_name`             | `default.user_name`                  | Optional  | Your email                                              |
-| `tenent_name`           | `default.tenant_name`                | Yes       | OpenStack tenant name                                   |
-| `auth_url`              | `https://uk1.embassy.ebi.ac.uk:5000` | Optional  | OpenStack API Identity Service URL                      |
-| `region`                | `RegionOne`                          | TBD       | OpenStack Region                                        |
-| `name`                  | `cwl vm environment`                 | TBD       | Abitrary deployment name                                |
-| `instances`             | `1`                                  | TBD       | Number of instances to install                          |
-| `deployment_path`       | `.`                                  | TBD       | Local path to save terraform deployment output          |
-| `disk_image_name`       | `ubuntu-18_04-python`                | Optional  | OpenStack Compute Image name                            |
-| `machine_type`          | `2c4m80d`                            | Optional  | OpenStack Machine type ("flavor")                       |
-| `floating_ip_pool`      | `public`                             | Optional  | OpenStack Network name for Floating IPs                 |
-| `network_name`          | undefined                            | Yes       | OpenStack Network name                                  |
-| `remote_user`           | `ubuntu`                             | TBD       | Remove VM user                                          |
-| `local_folder`          | `nfs-imports`                        | TBD       | Local folder                                            | 
-| `ssh_key`               | undefined                            | TBD       | Public key to inject into the VM                        |
-| `public_key_path`       | `~/.ssh/id_rsa.pub`                  | TBD       | Path of public SSH key to be injected in the VM         |
-| `private_key_path`      | `~/.ssh/id_rsa`                      | TBD       | Path of private SSH key to connect to the VM            |
-| `user_private_key_path` | `~/.ssh/id_rsa`                      | TBD       | (see [variables.tf](ostack/terraform/variables.tf))     |
-| `nfs_install`           | `yes` or  `no`                       | TBD       |                                                         |
-| `workflow_url`          | undefined                            | Optional  | e.g. https://github.com/douglowe/biobb_hpc_cwl_md_list  |
+| ---                     | ---                                  | ---                       | ---                                                     |
+| `user_name`             | `default.user_name`                  | Optional                  | Your email                                              |
+| `tenent_name`           | `default.tenant_name`                | Yes                       | OpenStack tenant name                                   |
+| `auth_url`              | `https://uk1.embassy.ebi.ac.uk:5000` | Optional                  | OpenStack API Identity Service URL                      |
+| `region`                | `RegionOne`                          | TBD                       | OpenStack Region                                        |
+| `name`                  | `cwl vm environment`                 | TBD                       | Abitrary deployment name                                |
+| `instances`             | `1`                                  | TBD                       | Number of instances to install                          |
+| `deployment_path`       | `.`                                  | TBD                       | Local path to save terraform deployment output          |
+| `disk_image_name`       | `ubuntu-18_04-python`                | Optional                  | OpenStack Compute Image name                            |
+| `machine_type`          | `2c4m80d`                            | Optional                  | OpenStack Machine type ("flavor")                       |
+| `floating_ip_pool`      | `public`                             | Optional                  | OpenStack Network name for Floating IPs                 |
+| `network_name`          | undefined                            | Yes                       | OpenStack Network name                                  |
+| `remote_user`           | `ubuntu`                             | TBD                       | Remove VM user                                          |
+| `local_folder`          | `nfs-imports`                        | TBD                       | Local folder                                            | 
+| `ssh_key`               | undefined                            | TBD                       | Public key to inject into the VM                        |
+| `public_key_path`       | `~/.ssh/id_rsa.pub`                  | TBD                       | Path of public SSH key to be injected in the VM         |
+| `private_key_path`      | `~/.ssh/id_rsa`                      | TBD                       | Path of private SSH key to connect to the VM            |
+| `user_private_key_path` | `~/.ssh/id_rsa`                      | TBD                       | (see [variables.tf](ostack/terraform/variables.tf))     |
+| `nfs_install`           | `yes` or  `no`                       | TBD                       |                                                         |
+| `workflow_url`          | undefined                            | Optional                  | e.g. https://github.com/douglowe/biobb_hpc_cwl_md_list  |
 
 ### `Inputs`
 
