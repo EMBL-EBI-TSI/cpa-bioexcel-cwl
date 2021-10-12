@@ -42,7 +42,7 @@ That should kick off a series of workflow steps.
 
 These are new for Embassy4 submissions and replace the previous username/password mechanism.
 
-| Credential name                  | Description (derived from [RedHat docs](https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/13/html/command_line_interface_reference/the_openstack_client) |
+| Credential name                  | Description (derived from [RedHat docs](https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/13/html/command_line_interface_reference/the_openstack_client)) |
 | ---                              | ---                                                              |
 | OS_APPLICATION_CREDENTIAL_ID     | With v3applicationcredential: application credential ID          |
 | OS_APPLICATION_CREDENTIAL_SECRET | With v3applicationcredential: application credential auth secret |
