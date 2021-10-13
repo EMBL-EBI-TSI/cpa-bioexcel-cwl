@@ -1,7 +1,7 @@
 ---
 
 - name: Upload pipenv files to install cwl
-  ansible.builtin.copy:
+  copy:
     src: cwl_bioexcel
     dest: ~/
     owner: "{{lookup('env','ANSIBLE_REMOTE_USER')}}"
@@ -10,7 +10,7 @@
 
 # Install cwlref-runner in venv
 - name: Install cwl and toil
-  ansible.builtin.shell:
+  shell:
     cmd: pipenv install
     chdir: ~/cwl_bioexcel
 
