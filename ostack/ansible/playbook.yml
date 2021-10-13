@@ -1,14 +1,14 @@
 ---
 - name: Warming up cwl instance
   gather_facts: no
-  hosts: instance_public_ip
+  hosts: "{{ ecp_host | default('instance_public_ip') }}"
   tasks:
   - name: Initial connection block
     block:
       - name: Wait 30 seconds, but only start checking after 5 seconds
         wait_for_connection:
           delay: 5
-          timeout: 30
+          timeout: 60
     rescue:
       - name: Disabling prompt for restarting while installing packages
         raw: echo '* libraries/restart-without-asking boolean true' | sudo debconf-set-selections
@@ -45,7 +45,7 @@
     authorized_key: user="{{lookup('env','ANSIBLE_REMOTE_USER')}}" key="{{lookup('env','ssh_key')}}" exclusive=no state=present
 
 - name: Install roles as a root
-  hosts: instance_public_ip
+  hosts: "{{ ecp_host | default('instance_public_ip') }}"
   vars:
       nfs_install: "{{ lookup('env','TF_VAR_nfs_install') }}"
   become: yes
@@ -60,7 +60,7 @@
     - docker
 
 - name: Setup CWL instance as a remote user - "{{lookup('env','ANSIBLE_REMOTE_USER')}}"
-  hosts: instance_public_ip
+  hosts: "{{ ecp_host | default('instance_public_ip') }}"
   vars:
       workflow_url: "{{ lookup('env','TF_VAR_workflow_url') }}"
   become: yes

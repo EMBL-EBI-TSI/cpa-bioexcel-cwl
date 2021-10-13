@@ -1,8 +1,8 @@
 {
     "applicationName": "CWL VM environment",
-    "contactEmail": "famaladoss@ebi.ac.uk",
-    "about": "Cloud Portal Bioexcel application to create ubuntu based VM with tools such as cwltool, Toil, Docker",
-    "version": "1.0",
+    "contactEmail": "ecp@ebi.ac.uk",
+    "about": "An EBI Cloud Portal/BioExcel application to create an Ubuntu-based VM pre-installed with tools such as cwltool, Toil, Docker",
+    "version": "2.0",
     "cloudProviders": [
         {
             "cloudProvider": "OSTACK",
