@@ -5,10 +5,10 @@
   tasks:
   - name: Initial connection block
     block:
-      - name: Wait 30 seconds, but only start checking after 5 seconds
+      - name: Wait 90 seconds, but only start checking after 5 seconds
         wait_for_connection:
           delay: 5
-          timeout: 60
+          timeout: 90
     rescue:
       - name: Disabling prompt for restarting while installing packages
         raw: echo '* libraries/restart-without-asking boolean true' | sudo debconf-set-selections
