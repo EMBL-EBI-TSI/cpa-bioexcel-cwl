@@ -1,3 +1,10 @@
+> **Note**
+> The EBI Cloud Portal has been retired and its code base is no longer updated. This includes all tooling for the VM-related features of the BioExcel Portal.
+
+> If you would like to contact the Cloud Portal authors, please leave us feedback via [the EBI contact form](https://www.ebi.ac.uk/about/contact/support/other) mentioning the EBI Cloud Portal in the Subject.
+
+> As of March 2023 the BioExcel project itself is ongoing and you can find more information on [its official website](https://bioexcel.eu/).
+
 # ECP (EBI Cloud Portal) Application - bioexcel-cwl
 
 ECP BioExcel application to create a VM with tools such as CWL, toil, docker and nfs client
